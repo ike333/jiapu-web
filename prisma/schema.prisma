@@ -1,0 +1,81 @@
+// 陈氏宗谱 Prisma Schema
+// 开发期用 SQLite，生产切 PostgreSQL 时只改 datasource provider 和连接串即可
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ==============================
+// 核心：族人
+// ==============================
+model Person {
+  id          String   @id @default(cuid())
+  name        String
+  gender      String   @default("male") // male | female
+  detail      String?  // 原始详情文本（妻室、生平、后代统计等）
+  spouseName  String?  // 提取的配偶姓名
+  birthYear   String?  // 生年（用 String 因为古谱可能是"嘉庆年间"等）
+  deathYear   String?  // 卒年
+  birthplace  String?  // 出生地
+  burialPlace String?  // 安葬地
+  generation  Int?     // 世代数（1=始迁祖）
+  rank        Int?     // 兄弟排行
+  branch      String?  // 房支标识（自龙/自凤/自虎/自秀）
+  parentId    String?
+  parent      Person?  @relation("PersonHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
+  children    Person[] @relation("PersonHierarchy")
+  photos      Photo[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([name])
+  @@index([parentId])
+  @@index([generation])
+  @@index([branch])
+}
+
+// ==============================
+// 家族文献
+// ==============================
+model Document {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  category  String   @default("general") // general | preface | rules | genealogy | memorial | other
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+}
+
+// ==============================
+// 照片
+// ==============================
+model Photo {
+  id        String   @id @default(cuid())
+  filename  String   // 文件名
+  personId  String?
+  person    Person?  @relation(fields: [personId], references: [id], onDelete: SetNull)
+  createdAt DateTime @default(now())
+}
+
+// ==============================
+// 修谱日志（后续扩展）
+// ==============================
+model EditLog {
+  id        String   @id @default(cuid())
+  action    String   // create | update | delete
+  entity    String   // person | document | photo
+  entityId  String?
+  summary   String   // 变更摘要
+  detail    String?  // 变更详情 JSON
+  createdAt DateTime @default(now())
+
+  @@index([entity])
+  @@index([createdAt])
+}

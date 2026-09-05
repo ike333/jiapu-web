@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "provider": "pdd",
+  "baidu_code": "",
+  "scenes": {
+    "birthday": "寿礼 生日礼 养生",
+    "marriage": "喜糖 婚庆礼盒 红包",
+    "memorial": "鲜花 祭祀用品",
+    "baby": "长命锁 婴儿用品",
+    "festival": "中秋礼盒 特产"
+  }
+}

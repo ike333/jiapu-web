@@ -1,0 +1,20 @@
+{
+  "clanId": "chen",
+  "name": "陈氏宗谱",
+  "surname": "陈",
+  "rootName": "陈三进",
+  "branches": ["自龙", "自凤", "自虎", "自秀"],
+  "branchGen": 2,
+  "stripPrefix": "陈",
+  "region": "陕西省旬阳市棕溪镇",
+  "rootIntro": "始迁祖陈三进于明末清初自湖北迁至陕西旬阳，历经多代，繁衍四大房支。",
+  "themeColor": "#1565C0",
+  "features": { "auth": true, "submit": true, "feedback": true },
+  "wechatAccounts": ["陈家庄", "我们的家谱"],
+  "wechatQr": { "我们的家谱": "/images/our-genealogy-qr.jpg" },
+  "metadata": {
+    "title": "陈氏宗谱 - 棕溪",
+    "description": "陕西省旬阳县棕溪镇陈氏家族宗谱，始迁祖陈三进，四大房支：自龙、自凤、自虎、自秀。",
+    "keywords": "陈氏宗谱, 棕溪, 陈三进, 族谱, 家谱, 旬阳, 陈氏家族"
+  }
+}

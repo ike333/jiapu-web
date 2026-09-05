@@ -1,0 +1,20 @@
+{
+  "clanId": "zhao",
+  "name": "赵氏宗谱",
+  "surname": "赵",
+  "rootName": "之举",
+  "branches": ["世义", "世湖", "世玉", "世龙"],
+  "branchGen": 3,
+  "stripPrefix": "",
+  "region": "陕西省旬阳市棕溪镇",
+  "rootIntro": "始迁祖赵之举，娶庞氏，葬汉江北樊家坡。生子必林，必林生世义、世湖、世玉、世龙四大房支。",
+  "themeColor": "#B8860B",
+  "features": { "auth": true, "submit": true, "feedback": true },
+  "wechatAccounts": ["我们的家谱"],
+  "wechatQr": { "我们的家谱": "/images/our-genealogy-qr.jpg" },
+  "metadata": {
+    "title": "赵氏宗谱",
+    "description": "赵氏宗谱，始迁祖赵之举，四大房支：世义、世湖、世玉、世龙。字辈：之必世赵居，士启德钦崇。济美贤才继，成章学力充。",
+    "keywords": "赵氏宗谱, 赵之举, 族谱, 家谱, 旬阳, 赵氏家族"
+  }
+}
